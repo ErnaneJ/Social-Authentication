@@ -2,7 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'devise', '~> 4.8'
+gem 'omniauth'
+gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 # Github
 gem "omniauth-rails_csrf_protection"

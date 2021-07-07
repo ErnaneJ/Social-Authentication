@@ -10,6 +10,10 @@
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },
+  "scripts":{
+    "dev": "rails s",
+    "devssl": "rails s -b 'ssl://localhost:3000?key=/home/ernane/Real/dev/RubyStudy/social_authentication/localhost.key&cert=/home/ernane/Real/dev/RubyStudy/social_authentication/localhost.crt'"
+  },
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^3.11.2"
