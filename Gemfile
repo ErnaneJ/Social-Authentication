@@ -6,9 +6,8 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'devise', '~> 4.8'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
-gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 # Github
-gem "omniauth-rails_csrf_protection"
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 
 # Facebook
 gem 'omniauth-facebook'
@@ -16,6 +15,7 @@ gem 'omniauth-facebook'
 # Google
 gem  'omniauth-google-oauth2'
 
+gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
 # Use sqlite3 as the database for Active Record
