@@ -1,2 +1,57 @@
-Hello <%= current_user.email %>
-<%= link_to "Sair", destroy_user_session_path, method: :delete %>
+<style>
+<style>
+*{padding:0; margin:0; box-sizing:border-box}
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+  background-color: #8a0dc4;
+	background-image: linear-gradient(326deg, #8a0dc4 0%, #5f0a87 74%);
+}
+.container{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+  background-color: #fff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow: 4px 4px 18px -5px rgba(0,0,0,.8),
+				4px 4px 18px -5px rgba(0,0,0,.5);
+}
+a{
+  display:block;
+  background-color: #5f0a87;
+  color: white;
+  font-weight: bold;
+  transition: .3s;
+  width:100%;
+  text-align:center;
+  font-size: 12px;
+  text-decoration:none;
+  border-radius:5px;
+  padding: 5px 10px;
+}
+a:hover{
+  transition: .3s;
+  background-color: #8a0dc4;
+}
+
+img{
+    border-radius:50%;
+    width:50px;
+    margin-bottom:20px;
+}
+
+</style>
+
+<section class="container">
+    <p>Hi, <%= current_user.name %>!</p>
+
+    <% if current_user.image.present? %>
+        <%= image_tag(current_user.image) %>
+    <% end %>
+
+    <%= link_to "Logoff", destroy_user_session_path, method: :delete %>
+<section>

@@ -1,9 +1,115 @@
+<style>
+*{padding:0; margin:0; box-sizing:border-box}
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+  background-color: #8a0dc4;
+	background-image: linear-gradient(326deg, #8a0dc4 0%, #5f0a87 74%);
+}
+.container{
+  background-color: #fff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow: 4px 4px 18px -5px rgba(0,0,0,.8),
+				4px 4px 18px -5px rgba(0,0,0,.5);
+}
+form{
+  margin-top:5px;
+}
+input{
+  padding:10px 25px;
+  border:none;
+  border-radius:5px;
+  outline:none;
+  background-color:#F1F5F9;
+  transition: .3s;
+  border: 1px solid #fff;
+  width:100%;
+}
+input:focus{
+  transition: .5s;
+  border: 1px solid #8a0dc4;
+}
+.inputs{
+  margin-top:10px;
+}
+.inputs label, .inputs em{
+  display:block;
+  position:absolute;
+  transform: translateX(5px) translateY(-5px);
+  font-size: 14px;
+  margin-top: 5px;
+}
+.actions{
+  width:100%;
+}
+.actions input{
+  width:100%;
+  background-color:#F1F5F9;
+  cursor:pointer;
+}
+a{
+  margin:0;
+  width:100%;
+  display:block;
+  text-align:center;
+  font-size: 12px;
+  color: #555;
+  text-decoration:none;
+}
+a:hover{
+  text-decoration:underline;
+}
+a[data-method="post"]{
+  display:block;
+  padding:10px 0px;
+  margin-top:3px;
+  border-radius:20px;
+  box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  color:black;
+  text-decoration:none;
+  font-size: 16px;
+}
+a[data-method="post"]{
+  text-decoration:none;
+}
+.detail{
+  margin:10px 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.detail p{
+  margin:5px;
+  color:#aaa;
+}
+.detail .a{
+  height:1px;
+  width:80%;
+  background-color:#aaa;
+}
+input[type="submit"]{
+  margin:15px 0;
+  background-color: #5f0a87;
+  color: white;
+  font-weight: bold;
+  transition: .3s;
+}
+input[type="submit"]:hover{
+  transition: .3s;
+  background-color: #8a0dc4;
+}
+</style>
+
+<section class="container">
 <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
+  <div class="field inputs">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -14,3 +120,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</section>

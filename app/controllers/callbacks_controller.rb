@@ -1,13 +1,13 @@
 class CallbacksController < Devise::OmniauthCallbacksController
     # Github
     def github
-        @user = User.from_omniauth(request.env["omniauth.auth"])
+        @user = User.from_omniauth(request.env["omniauth.auth"], "github")
         sign_in_and_redirect @user
     end
 
     # Facebook
     def facebook 
-        @user = User.from_omniauth(request.env["omniauth.auth"]) 
+        @user = User.from_omniauth(request.env["omniauth.auth"], "facebook") 
         if @user.persisted? 
             sign_in_and_redirect @user, event: :authentication
         else
@@ -21,8 +21,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
 
     # Google
     def google_oauth2
-        # You need to implement the method below in your model (e.g. app/models/user.rb)
-        @user = User.from_omniauth(request.env['omniauth.auth'])
+        @user = User.from_omniauth(request.env['omniauth.auth'], "google")
   
         if @user.persisted?
           flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'

@@ -5,11 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable,
          omniauth_providers: [:google_oauth2, :github, :facebook]
 
-  def self.from_omniauth(auth)
+  def self.from_omniauth(auth, app)
+    puts ".::DADOS:..",auth
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      puts auth
+      user.image = auth.info.image
+      user.name = auth.info.name
     end
   end
 end
