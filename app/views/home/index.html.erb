@@ -1,6 +1,6 @@
 <style>
 <style>
-*{padding:0; margin:0; box-sizing:border-box}
+*{padding:0; margin:0; box-sizing:border-box;}
 body{
   display:flex;
   align-items:center;
@@ -9,49 +9,92 @@ body{
   background-color: #8a0dc4;
 	background-image: linear-gradient(326deg, #8a0dc4 0%, #5f0a87 74%);
 }
+.facebook img, .google_oauth2 img{
+  width:50px;
+}
+.detail{
+  margin: 10px 0;
+  width:100%;
+  height:1px;
+  border-radius:5px;
+  background-color: #ccc;
+  margin-bottom:20px;
+}
+
+p{
+  text-align: center;
+}
+h2{
+  margin:0;
+  font-weight:400;
+}
 .container{
   display:flex;
   flex-direction: column;
   align-items:center;
+  max-width:300px;
   justify-content:center;
-  background-color: #fff;
+  background-color: rgba(250,250,250,1);
   padding:20px;
   border-radius:10px;
   box-shadow: 4px 4px 18px -5px rgba(0,0,0,.8),
-				4px 4px 18px -5px rgba(0,0,0,.5);
+				      4px 4px 18px -5px rgba(0,0,0,.5);
 }
-a{
+.btn{
+  width:50%;
+}
+.container a{
   display:block;
   background-color: #5f0a87;
   color: white;
   font-weight: bold;
   transition: .3s;
-  width:100%;
   text-align:center;
   font-size: 12px;
   text-decoration:none;
   border-radius:5px;
-  padding: 5px 10px;
+  padding: 10px 15px;
 }
-a:hover{
+.container a:hover{
   transition: .3s;
   background-color: #8a0dc4;
 }
 
 img{
     border-radius:50%;
-    width:50px;
+    width:200px;
     margin-bottom:20px;
+    box-shadow: 4px 4px 18px -5px rgba(0,0,0,.5);
+}
+.hi{
+  display:block;
+  text-align:left;
+  width:100%;
+  font-size: 20px;
+}
+.span{
+  color:#444;
+  font-size:12px;
+  text-align:center;
+  width:auto;
 }
 
 </style>
 
-<section class="container">
-    <p>Hi, <%= current_user.name %>!</p>
-
+<section class="container <%=current_user.provider%>">
+    <span class="hi">Hi,</span>
     <% if current_user.image.present? %>
+      <a style="background-color:transparent;" href=<%= current_user.url %>>
         <%= image_tag(current_user.image) %>
+      </a>
     <% end %>
-
-    <%= link_to "Logoff", destroy_user_session_path, method: :delete %>
+    <h2><%= current_user.name %></h2>
+    <span class="span"><%= current_user.email %></span>
+    <% if current_user.bio.present? %>
+      <p><%= current_user.bio %></p>
+    <% end %>
+    <div class="detail"></div>
+    <div class="btn">
+      <%= link_to "Logoff", destroy_user_session_path, method: :delete %>
+    </div>
 <section>
