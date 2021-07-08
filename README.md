@@ -42,7 +42,7 @@ Application developed in Ruby on Rails as a template to perform user authenticat
 - Clone the repository:
 
 ```bash
-$ git clone ...
+$ git clone https://github.com/ErnaneJ/Social-Authentication.git
 ```
 
 - Install the dependencies
