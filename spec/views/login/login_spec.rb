@@ -1,9 +1,9 @@
-feature "Logging in" do
+feature "Login" do
   background do
     User.create(email: 'example@example.com', password: '321s3nhas3cre3ta')
   end
 
-  scenario "logging in as an unauthenticated user" do
+  scenario "as an unauthenticated user" do
     visit '/users/sign_in'
     
     within(".container") do
