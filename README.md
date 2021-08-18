@@ -9,10 +9,6 @@
 </div>
 <br/>
 
-<img style="border-radius:5px; box-shadow: 4px 4px 18px -5px rgba(0,0,0,.5);" width="100%" src="./.github/image%201.png">
-
-<br>
-
 ## 🚀 Technologies
 
 This application was developed with the following technologies:
